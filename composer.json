@@ -1,0 +1,17 @@
+{
+    "name": "ugurcsen/phpeasycache",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ugur SEN",
+            "email": "trmaster101@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "EasyCache\\": "src/"
+        }
+    }
+}
