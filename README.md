@@ -51,7 +51,6 @@ $dataCache->clear();//Deleting cached data
 use EasyCache\Cache;
 use EasyCache\CacheElement;
 $cache = new Cache();
-$cache->saveLocation = '/var/temp/';
 
 $data = "Something which needs to cached.";
 $dataCache = new CacheElement('data1', 540);
@@ -63,12 +62,11 @@ if($dataCache->check()){
 
 $dataCache->clear();
 ```
-##Create, Get And Delete without CacheElement definations
+## Create, Get And Delete without CacheElement definations
 ```php
 <?php
 use EasyCache\Cache;
 $cache = new Cache();
-$cache->saveLocation = '/var/temp/';
 $data = "Something which needs to cached.";
 //Creating
 $cache->set('data1', 540, $data);//If data caching before expires date, Nothing will save
