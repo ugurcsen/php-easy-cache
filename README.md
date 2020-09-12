@@ -47,7 +47,7 @@ $dataCache->clear();//Deleting cached data
 ```
 ## Full Sample
 ```php
-  <?php
+<?php
 use EasyCache\Cache;
 use EasyCache\CacheElement;
 $cache = new Cache();
