@@ -76,7 +76,7 @@ $data = "Something which needs to cached.";
 $cache->set('data1', 540, $data);//If data caching before expires date, Nothing will save
 //Getting and writing
 if($cache->checkWithKey('data1')){
-  echo $cache->getWithKey'data1');
+  echo $cache->getWithKey('data1');
 }
 //Deleting
 $cache->clearWithKey('data1');
