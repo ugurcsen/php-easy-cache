@@ -7,28 +7,27 @@ class CacheElement extends Cache
 {
     /**
      * @var string $key
-     * @var integer $expiresTime
-     * @var integer $fileName
+     * @var int $expiresTime
      */
-    public $key;
-    public $expiresTime;
+    public string $key;
+    public int $expiresTime;
 
     /**
      * @param string $key <p>
      * This value is using to access later.
      * </p>
-     * @param integer $expiresTime <p>
+     * @param int $expiresTime <p>
      * When expired this cache.(Seconds)
      * </p>
-     * @param integer $cache <p>
+     * @param string $cacheSaveLocation <p>
      * Cache class which will use
      * </p>
      */
-    public function __construct($key, $expiresTime, $cache)
+    public function __construct(string $key, int $expiresTime, string $cacheSaveLocation)
     {
         $this->key = $key;
         $this->expiresTime = $expiresTime;
-        $this->saveLocation = $cache->saveLocation;
+        $this->saveLocation = $cacheSaveLocation;
     }
 
     /**
@@ -40,9 +39,9 @@ class CacheElement extends Cache
     }
 
     /**
-     * @param integer $expiresTime
+     * @param int $expiresTime
      */
-    public function setExpiresTime($expiresTime)
+    public function setExpiresTime(int $expiresTime)
     {
         $this->expiresTime = $expiresTime;
     }
@@ -56,7 +55,7 @@ class CacheElement extends Cache
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getExpiresTime()
     {
@@ -86,7 +85,7 @@ class CacheElement extends Cache
     public function clear()
     {
         $key = $this->key;
-        return $this->clear($key);
+        return parent::clearWithKey($key);
     }
 
     /**
@@ -95,6 +94,13 @@ class CacheElement extends Cache
     public function check()
     {
         $key = $this->key;
-        return $this->check($key);
+        return parent::checkWithKey($key);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function get(){
+        return $this->getWithKey($this->key);
     }
 }
