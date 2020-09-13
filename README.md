@@ -6,7 +6,7 @@ PHP >= 7.4
 ```
 ## Installation
 ```
-composer require ugurcsen/php-easy-cache
+composer require ugurcsen/phpeasycache
 ```
    or
 
