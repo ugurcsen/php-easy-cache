@@ -1,5 +1,9 @@
 
 # Easy Cache
+## Required
+```
+PHP >= 7.4
+```
 ## Installation
 ```
 composer require ugurcsen/php-easy-cache
@@ -15,14 +19,14 @@ require 'path/to/php-easy-cache/easycache.php';
 <?php
 use EasyCache\Cache;
 $cache = new Cache();
-$cache->saveLocation = '/var/temp/'; //Should be changed for operating system
+$cache->saveLocation = '/var/temp'; //Should be changed for operating system but not necessary
 ```
 ## Cache something
 ```php
 <?php
 use EasyCache\CacheElement;
 $data = "Something which needs to cached.";
-$dataCache = new CacheElement('data1', 540);// Key , ExpiresTime(seconds)
+$dataCache = $cache->createElement('data1', 540);// Key , ExpiresTime(seconds)
 $dataCache->save($data);//If data caching before expires date, Nothing will save
 ```
 ## Get something from cache
@@ -53,7 +57,7 @@ use EasyCache\CacheElement;
 $cache = new Cache();
 
 $data = "Something which needs to cached.";
-$dataCache = new CacheElement('data1', 540);
+$dataCache = $cache->createElement('data1', 540);
 $dataCache->save($data);//If data caching before expires date, Nothing will save
 
 if($dataCache->check()){
@@ -62,7 +66,7 @@ if($dataCache->check()){
 
 $dataCache->clear();
 ```
-## Create, Get And Delete without CacheElement definations
+## Create, Get And Delete without element definition
 ```php
 <?php
 use EasyCache\Cache;
@@ -71,9 +75,9 @@ $data = "Something which needs to cached.";
 //Creating
 $cache->set('data1', 540, $data);//If data caching before expires date, Nothing will save
 //Getting and writing
-if($cache->check('data1')){
-  echo $cache->get('data1');
+if($cache->checkWithKey('data1')){
+  echo $cache->getWithKey('data1');
 }
 //Deleting
-$cache->clear('data1');
+$cache->clearWithKey('data1');
 ```
