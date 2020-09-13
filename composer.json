@@ -8,7 +8,9 @@
             "email": "trmaster101@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+      "ext-json": "*"
+    },
     "autoload": {
         "psr-4": {
             "EasyCache\\": "src/"
